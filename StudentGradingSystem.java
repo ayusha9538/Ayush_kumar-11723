@@ -6,45 +6,44 @@ class Student {
         this.name = name;
         this.marks = marks;
     }
-    double calculateAverage() {
+    double calculateavg() {
         int sum = 0;
         for (int mark : marks) {
             sum += mark;
         }
         return (double) sum / marks.length;
     }
-    char assignGrade() {
-        double average = calculateAverage();
-        if (average >= 90) {
+    char assigngrade() {
+        double avg = calculateavg();
+        if (avg >= 90) {
             return 'A';
         } 
-        else if (average >= 75) {
+        else if (avg >= 75) {
             return 'B';
         } 
-        else if (average >= 60) {
+        else if (avg >= 60) {
             return 'C';
         } 
-        else if (average >= 50) {
+        else if (avg >= 50) {
             return 'D';
         } 
         else {
             return 'F';
         }
     }
-    void displayDetails() {
-        System.out.println("\n----- STUDENT REPORT -----");
+    void display() {
+        System.out.println("\nSTUDENT REPORT");
         System.out.println("Student Name : " + name);
         System.out.print("Marks : ");
         for (int mark : marks) {
             System.out.print(mark + " ");
         }
         System.out.println();
-        System.out.println("Average : " + calculateAverage());
-        System.out.println("Grade : " + assignGrade());
+        System.out.println("Average : " + calculateavg());
+        System.out.println("Grade : " + assigngrade());
     }
 }
-public class StudentGradingSystem {
-
+public class studentgrading {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter Student Name: ");
@@ -58,6 +57,6 @@ public class StudentGradingSystem {
             marks[i] = sc.nextInt();
         }
         Student s1 = new Student(name, marks);
-        s1.displayDetails();
+        s1.display();
     }
 }
